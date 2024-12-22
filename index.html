@@ -1,38 +1,26 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Referral System</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neumorphism Referral System</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Referral System</h1>
-        
-        <!-- Display User Information -->
-        <div class="user-info">
-            <p><strong>Your Referral Link:</strong></p>
-            <input type="text" id="referralLink" readonly>
-            <button onclick="copyReferralLink()">Copy Referral Link</button>
-        </div>
-
-        <!-- Referral Form -->
-        <div class="referral-form">
-            <h2>Invite a Friend</h2>
-            <label for="referralCode">Enter Referral Code (Optional):</label>
-            <input type="text" id="referralCode" placeholder="Enter Referral Code">
-            <button onclick="submitReferral()">Submit Referral</button>
-        </div>
-
-        <!-- Referral Stats -->
-        <div class="referral-stats">
-            <h3>Your Referrals:</h3>
-            <p id="referralCount">Total Referrals: 0</p>
-        </div>
+  <div class="container">
+    <h1 class="title">Referral System</h1>
+    
+    <div class="referral-box">
+      <input type="text" id="userName" placeholder="Enter your name" class="input">
+      <button id="generateBtn" class="button">Generate Referral Code</button>
     </div>
+    
+    <div id="referralCode" class="referral-code"></div>
+    
+    <h2>Referrals:</h2>
+    <ul id="referralsList" class="referrals-list"></ul>
+  </div>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
