@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referral System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Referral System</h1>
+        
+        <!-- Display User Information -->
+        <div class="user-info">
+            <p><strong>Your Referral Link:</strong></p>
+            <input type="text" id="referralLink" readonly>
+            <button onclick="copyReferralLink()">Copy Referral Link</button>
+        </div>
+
+        <!-- Referral Form -->
+        <div class="referral-form">
+            <h2>Invite a Friend</h2>
+            <label for="referralCode">Enter Referral Code (Optional):</label>
+            <input type="text" id="referralCode" placeholder="Enter Referral Code">
+            <button onclick="submitReferral()">Submit Referral</button>
+        </div>
+
+        <!-- Referral Stats -->
+        <div class="referral-stats">
+            <h3>Your Referrals:</h3>
+            <p id="referralCount">Total Referrals: 0</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
