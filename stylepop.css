@@ -1,4 +1,3 @@
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,30 +5,29 @@ body {
     overflow: hidden;
 }
 
-.hidden {
-    display: none;
-}
-
-#popup-wrapper {
+.popup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(5px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-#popup {
+.popup-content {
     background: #e0e0e0;
     border-radius: 20px;
-    box-shadow: 8px 8px 16px #bebebe, -8px -8px 16px #ffffff;
+    box-shadow: 10px 10px 20px #bebebe, -10px -10px 20px #ffffff;
     padding: 20px;
     text-align: center;
+    position: relative;
 }
 
 .popup-image {
@@ -40,19 +38,30 @@ body {
     margin-bottom: 20px;
 }
 
-.neumorphic-button {
+.claim-btn {
     background: #e0e0e0;
     border: none;
-    border-radius: 12px;
-    box-shadow: 4px 4px 8px #bebebe, -4px -4px 8px #ffffff;
-    color: #333;
-    font-size: 16px;
-    margin: 10px;
     padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+    font-size: 16px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: box-shadow 0.3s ease;
 }
 
-.neumorphic-button:active {
-    box-shadow: inset 4px 4px 8px #bebebe, inset -4px -4px 8px #ffffff;
+.claim-btn:hover {
+    box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.show {
+    opacity: 1;
+    visibility: visible;
 }
