@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neumorphism Referral System</title>
+  <link rel="stylesheet" href="stylink.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Referral System</h1>
+
+    <div class="referral-section">
+      <p id="userInfo">Welcome, <span id="userName">Guest</span></p>
+      <p>Your Referral Link:</p>
+      <div class="referral-link">
+        <input type="text" id="referralLink" readonly class="input">
+        <button id="copyLink" class="button">Copy</button>
+      </div>
+    </div>
+
+    <h2>Your Referrals</h2>
+    <p>Referral Count: <span id="referralCount">0</span></p>
+    <ul id="referralList" class="referral-list"></ul>
+
+    <div class="registration-section">
+      <h2>Register Here</h2>
+      <form id="registrationForm">
+        <input type="text" id="nameInput" placeholder="Enter your name" class="input" required>
+        <input type="hidden" id="referrerInput">
+        <button type="submit" class="button">Register</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="reflink.js"></script>
+</body>
+</html>
