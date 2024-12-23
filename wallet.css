@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neumorphic Pop-up</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <img src="your-image.jpg" alt="Popup Image" class="popup-image">
+            <button class="claim-btn">Claim</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
