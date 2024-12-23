@@ -1,22 +1,15 @@
-
 document.addEventListener('DOMContentLoaded', () => {
-    const popupWrapper = document.getElementById('popup-wrapper');
-    const closeButton = document.getElementById('close-button');
-    const claimButton = document.getElementById('claim-button');
-
-    // Show the pop-up after 4.5 seconds
+    // Automatically show the pop-up after a delay
     setTimeout(() => {
-        popupWrapper.classList.remove('hidden');
-    }, 4500);
-
-    // Close the pop-up when the close button is clicked
-    closeButton.addEventListener('click', () => {
-        popupWrapper.classList.add('hidden');
-    });
-
-    // Add functionality to the claim button as needed
-    claimButton.addEventListener('click', () => {
-        // Implement claim action here
-        alert('Claim button clicked!');
-    });
+        document.getElementById('popup').classList.add('show');
+    }, 1000); // Adjust the delay as needed
 });
+
+function closePopup() {
+    const popup = document.getElementById('popup');
+    popup.classList.remove('show');
+    // Wait for the transition to complete before hiding completely
+    setTimeout(() => {
+        popup.style.display = 'none';
+    }, 300); // Match this duration with the CSS transition time
+}
