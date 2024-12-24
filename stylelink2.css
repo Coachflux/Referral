@@ -1,0 +1,109 @@
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #e0e0e0;
+    padding: 20px;
+}
+
+.container {
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px #bebebe, -10px -10px 20px #ffffff;
+    padding: 30px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+h1, h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.referral-section, .invited-members-section, .referral-code-section {
+    margin-bottom: 30px;
+}
+
+.referral-link-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
+    padding: 10px;
+}
+
+#referral-link {
+    border: none;
+    background: none;
+    width: 80%;
+    font-size: 14px;
+    color: #555;
+    outline: none;
+}
+
+#copy-button {
+    background-color: #e0e0e0;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+    font-size: 14px;
+}
+
+#copy-button:hover {
+    box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+    padding: 10px;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+#referral-code {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
+    padding: 10px;
+    color: #555;
+    display: inline-block;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .referral-link-container {
+        flex-direction: column;
+    }
+    #referral-link {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    #copy-button {
+        width: 100%;
+    }
+}
