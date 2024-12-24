@@ -1,74 +1,108 @@
-
-/* Import Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
+/* Base styles */
 body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e0e0e0;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background-color: #e0e0e0;
-    padding: 20px;
+    height: 100vh;
+    margin: 0;
 }
 
 .container {
-    background-color: #e0e0e0;
+    width: 90%;
+    max-width: 600px;
+    padding: 20px;
     border-radius: 20px;
+    background-color: #e0e0e0;
     box-shadow: 10px 10px 20px #bebebe, -10px -10px 20px #ffffff;
-    padding: 30px;
-    width: 100%;
-    max-width: 500px;
     text-align: center;
 }
 
-h1, h2 {
+h1 {
     margin-bottom: 20px;
-    color: #333;
 }
 
-.referral-section, .invited-members-section, .referral-code-section {
+/* Neumorphic Form */
+.neumorphic-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     margin-bottom: 30px;
 }
 
-.referral-link-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #e0e0e0;
-    border-radius: 10px;
-    box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
+.neumorphic-form label {
+    text-align: left;
+    font-weight: bold;
+}
+
+.neumorphic-form input {
     padding: 10px;
-}
-
-#referral-link {
     border: none;
-    background: none;
-    width: 80%;
-    font-size: 14px;
-    color: #555;
-    outline: none;
-}
-
-#copy-button {
-    background-color: #e0e0e0;
-    border: none;
-    padding: 10px 15px;
     border-radius: 10px;
+    background-color: #e0e0e0;
+    box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
+    font-size: 16px;
+}
+
+.neumorphic-form button {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #e0e0e0;
     box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+    font-size: 16px;
     cursor: pointer;
-    transition: box-shadow 0.3s ease;
+    transition: background-color 0.3s ease;
+}
+
+.neumorphic-form button:hover {
+    background-color: #d1d1d1;
+}
+
+/* Neumorphic Card */
+.neumorphic-card {
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #e0e0e0;
+    box-shadow: 10px 10px 20px #bebebe, -10px -10px 20px #ffffff;
+    margin-bottom: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+.referral-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.referral-link input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #e0e0e0;
+    box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
     font-size: 14px;
 }
 
-#copy-button:hover {
-    box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
+.referral-link button {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #e0e0e0;
+    box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.referral-link button:hover {
+    background-color: #d1d1d1;
 }
 
 ul {
@@ -77,33 +111,10 @@ ul {
 }
 
 li {
-    background-color: #e0e0e0;
+    padding: 10px;
     border-radius: 10px;
+    background-color: #e0e0e0;
     box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
-    padding: 10px;
     margin-bottom: 10px;
-    color: #555;
-}
-
-#referral-code {
-    background-color: #e0e0e0;
-    border-radius: 10px;
-    box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
-    padding: 10px;
-    color: #555;
-    display: inline-block;
-}
-
-/* Responsive Design */
-@media (max-width: 480px) {
-    .referral-link-container {
-        flex-direction: column;
-    }
-    #referral-link {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-    #copy-button {
-        width: 100%;
-    }
+    font-size: 14px;
 }
