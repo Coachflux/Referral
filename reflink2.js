@@ -1,20 +1,22 @@
-
-// Function to copy the referral link to clipboard
-function copyReferralLink() {
-    const referralLink = document.getElementById('referral-link');
-    referralLink.select();
-    referralLink.setSelectionRange(0, 99999); // For mobile devices
-    document.execCommand('copy');
-    alert('Referral link copied to clipboard!');
-}
-
-// Example: Adding invited members dynamically
 document.addEventListener('DOMContentLoaded', () => {
-    const invitedMembersList = document.getElementById('invited-members-list');
-    const invitedMembers = ['Alice', 'Bob', 'Charlie']; // Replace with dynamic data as needed
-    invitedMembers.forEach(member => {
-        const listItem = document.createElement('li');
-        listItem.textContent = member;
-        invitedMembersList.appendChild(listItem);
-    });
-});
+    const registrationForm = document.getElementById('registrationForm');
+    const userReferralInfo = document.getElementById('userReferralInfo');
+    const referralLinkInput = document.getElementById('referralLink');
+    const userReferralCodeSpan = document.getElementById('userReferralCode');
+    const copyButton = document.getElementById('copyButton');
+    const invitedMembersDiv = document.getElementById('invitedMembers');
+    const membersList = document.getElementById('membersList');
+
+    // Simulated database
+    const database = {
+        users: [],
+        invitedMembers: {}
+    };
+
+    // Handle registration form submission
+    registrationForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const username = document.getElementById('username').value.trim();
+
+::contentReference[oaicite:0]{index=0}
+ 
