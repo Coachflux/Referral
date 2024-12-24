@@ -11,7 +11,7 @@ const referrerInput = document.getElementById("referrerInput");
 
 // Mock database
 let users = {};
-let currentUser = "JohnDoe"; // Replace with actual logged-in user
+let currentUser = const userNameElement; // Replace with actual logged-in user
 
 // Initialize user details
 function initialize() {
