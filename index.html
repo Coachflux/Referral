@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neumorphic Referral System</title>
+    <link rel="stylesheet" href="stylelink2.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Referral System</h1>
+        <div class="referral-section">
+            <label for="referral-link">Your Referral Link:</label>
+            <div class="referral-link-container">
+                <input type="text" id="referral-link" value="https://example.com/signup?ref=JohnDoe" readonly>
+                <button id="copy-button" onclick="copyReferralLink()">Copy</button>
+            </div>
+        </div>
+        <div class="invited-members-section">
+            <h2>Invited Members</h2>
+            <ul id="invited-members-list">
+                <!-- Invited members will be dynamically added here -->
+            </ul>
+        </div>
+        <div class="referral-code-section">
+            <h2>Your Referral Code</h2>
+            <p id="referral-code">JohnDoe123</p>
+        </div>
+    </div>
+    <script src="reflink2.js"></script>
+</body>
+</html>
