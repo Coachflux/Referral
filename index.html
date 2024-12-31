@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Neumorphism Referral System</title>
+  <title>Referrals</title>
   <link rel="stylesheet" href="stylink.css">
+  <link rel="stylesheet" href="sty.css">
 </head>
 <body>
   <div class="container">
@@ -19,6 +20,30 @@
         <button id="copyLink" class="button">Copy</button>
       </div>
     </div>
+
+    <!-- User Registration -->
+    <div class="referral-box">
+      <h2>Register</h2>
+      <input type="text" id="userName" placeholder="Enter your name" class="input">
+      <button id="registerBtn" class="button">Register</button>
+    </div>
+
+    <!-- Referral Code -->
+    <div id="referralSection" class="referral-section hidden">
+      <p id="referralCodeDisplay" class="referral-code"></p>
+      <h3>Your Invited Members</h3>
+      <ul id="invitedMembersList" class="users-list"></ul>
+      <p>Total Referrals: <span id="referralCount">0</span></p>
+    </div>
+
+    <!-- Friend Registration -->
+    <div class="referral-box">
+      <h2>Invite a Friend</h2>
+      <input type="text" id="friendName" placeholder="Friend's name" class="input">
+      <input type="text" id="friendReferralCode" placeholder="Your referral code" class="input">
+      <button id="inviteBtn" class="button">Invite</button>
+    </div>
+  </div>
 
     <h2>Your Referrals</h2>
     <p>Referral Count: <span id="referralCount">0</span></p>
@@ -35,5 +60,6 @@
   </div>
 
   <script src="reflink.js"></script>
+  <script src="ref.js"></script>
 </body>
 </html>
