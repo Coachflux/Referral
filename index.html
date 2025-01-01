@@ -6,10 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Neumorphism Referral System</title>
   <link rel="stylesheet" href="sty.css">
+  <link rel="stylesheet" href="stylink.css">
+  
 </head>
 <body>
   <div class="container">
     <h1 class="title">Referral System</h1>
+
+    <div class="referral-section">
+      <p id="userInfo">Welcome, <span id="userName">Guest</span></p>
+      <p>Your Referral Link:</p>
+      <div class="referral-link">
+        <input type="text" id="referralLink" readonly class="input">
+        <button id="copyLink" class="button">Copy</button>
+      </div>
+    </div>
 
     <!-- User Registration -->
     <div class="referral-box">
@@ -36,5 +47,6 @@
   </div>
 
   <script src="ref.js"></script>
+  <script src="reflink.js"></script>
 </body>
 </html>
