@@ -51,7 +51,16 @@ document.getElementById("inviteBtn").addEventListener("click", () => {
   document.getElementById("friendReferralCode").value = "";
 });
 
-
+// On page load, check if user is already registered
+window.onload = function() {
+    const referralCode = localStorage.getItem('referralCode');
+    if (referralCode) {
+        displayReferralInfo(referralCode);}
+      const invitedMembersList = localStorage.getItem('invitedMembersList');
+    if (invitedMembersList) {
+        displayReferralInfo(invitedMembersList);
+    }
+};
 
 
 
