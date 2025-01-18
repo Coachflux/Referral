@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neumorphism Referral System</title>
+    <link rel="stylesheet" href="refsys.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Referral System</h1>
+        <section id="registration">
+            <h2>Register</h2>
+            <input type="text" id="username" placeholder="Enter your username">
+            <input type="text" id="friendReferralCode" placeholder="Enter friend's referral code (optional)">
+            <button id="registerBtn">Register</button>
+        </section>
+        <section id="referral" style="display:none;">
+            <h2>Your Referral Code</h2>
+            <div class="referral-code" id="referralCode"></div>
+        </section>
+        <section id="invitedFriends" style="display:none;">
+            <h2>Invited Friends</h2>
+            <ul id="friendsList"></ul>
+        </section>
+    </div>
+    <script src="refsys.js"></script>
+</body>
+</html>
