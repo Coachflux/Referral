@@ -9,25 +9,17 @@
 <body>
   <div class="container">
     <h1 class="title">Referral System</h1>
+    
+    <!-- Registration Form -->
+    <form id="registrationForm" class="registration-form">
+      <input type="text" id="userName" placeholder="Enter your name" class="input" required>
+      <input type="text" id="referralCode" placeholder="Enter referral code (optional)" class="input">
+      <button type="submit" class="button">Register</button>
+    </form>
 
-    <div class="referral-box">
-      <input type="text" id="userName" placeholder="Enter your name" class="input">
-      <button id="registerBtn" class="button">Register</button>
-    </div>
-
-    <div id="referralInfo" class="referral-info">
-      <h2>Referral Details:</h2>
-      <p id="referralCodeDisplay" class="referral-code"></p>
-      <p>Referral Count: <span id="referralCount">0</span></p>
-    </div>
-
-    <div class="invite-box">
-      <input type="text" id="friendName" placeholder="Enter friend's name" class="input">
-      <button id="inviteBtn" class="button">Invite</button>
-    </div>
-
-    <h2>Invited Members:</h2>
-    <ul id="invitedList" class="invited-list"></ul>
+    <!-- Referral Summary -->
+    <h2>Registered Users:</h2>
+    <ul id="usersList" class="users-list"></ul>
   </div>
 
   <script src="refsys.js"></script>
