@@ -1,82 +1,79 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const signupBtn = document.getElementById('signup-btn');
-  const joinBtn = document.getElementById('join-btn');
-  const usernameInput = document.getElementById('username');
-  const referralInput = document.getElementById('referral');
-  const userSection = document.getElementById('user-section');
-  const currentUser = document.getElementById('current-user');
-  const referralCode = document.getElementById('referral-code');
-  const invitedList = document.getElementById('invited-list');
-  const invitedCount = document.getElementById('invited-count');
+// script.js
+const registerBtn = document.getElementById("registerBtn");
+const inviteBtn = document.getElementById("inviteBtn");
 
-  const users = JSON.parse(localStorage.getItem('users')) || {};
+const referralCodeDisplay = document.getElementById("referralCodeDisplay");
+const referralCountDisplay = document.getElementById("referralCount");
+const invitedList = document.getElementById("invitedList");
 
-  function saveUsers() {
-    localStorage.setItem('users', JSON.stringify(users));
+let userData = JSON.parse(localStorage.getItem("userData")) || {};
+
+// Register a user and generate a referral code
+registerBtn.addEventListener("click", () => {
+  const userName = document.getElementById("userName").value.trim();
+
+  if (userName === "") {
+    alert("Please enter your name!");
+    return;
   }
 
-  function generateReferralCode(username) {
-    return username + Math.random().toString(36).substring(2, 8);
+  if (userData.referralCode) {
+    alert("You are already registered!");
+    return;
   }
 
-  function displayUser(username) {
-    currentUser.textContent = username;
-    referralCode.textContent = users[username].referralCode;
+  const referralCode = `${userName.toUpperCase()}-${Math.floor(1000 + Math.random() * 9000)}`;
+  userData = {
+    userName,
+    referralCode,
+    referrals: [],
+  };
 
-    invitedList.innerHTML = '';
-    users[username].invited.forEach(friend => {
-      const li = document.createElement('li');
-      li.textContent = friend;
-      invitedList.appendChild(li);
+  localStorage.setItem("userData", JSON.stringify(userData));
+
+  updateReferralInfo();
+  alert("Registration successful!");
+});
+
+// Invite a friend
+inviteBtn.addEventListener("click", () => {
+  const friendName = document.getElementById("friendName").value.trim();
+
+  if (friendName === "") {
+    alert("Please enter your friend's name!");
+    return;
+  }
+
+  if (!userData.referralCode) {
+    alert("Please register first!");
+    return;
+  }
+
+  userData.referrals.push(friendName);
+  localStorage.setItem("userData", JSON.stringify(userData));
+
+  updateReferralInfo();
+  alert(`${friendName} has been invited!`);
+});
+
+// Update referral info and invited list
+function updateReferralInfo() {
+  if (userData.referralCode) {
+    referralCodeDisplay.textContent = `Your Referral Code: ${userData.referralCode}`;
+    referralCountDisplay.textContent = userData.referrals.length;
+
+    invitedList.innerHTML = "";
+    userData.referrals.forEach((friend) => {
+      const listItem = document.createElement("li");
+      listItem.textContent = friend;
+      invitedList.appendChild(listItem);
     });
-
-    invitedCount.textContent = users[username].invited.length;
-    userSection.classList.remove('hidden');
   }
+}
 
-  signupBtn.addEventListener('click', () => {
-    const username = usernameInput.value.trim();
-
-    if (!username || users[username]) {
-      alert('Invalid or existing username!');
-      return;
-    }
-
-    users[username] = {
-      referralCode: generateReferralCode(username),
-      invited: []
-    };
-    saveUsers();
-    displayUser(username);
-    usernameInput.value = '';
-  });
-
-  joinBtn.addEventListener('click', () => {
-    const referral = referralInput.value.trim();
-    const username = usernameInput.value.trim();
-
-    if (!username || users[username]) {
-      alert('Invalid or existing username!');
-      return;
-    }
-
-    const inviter = Object.keys(users).find(
-      key => users[key].referralCode === referral
-    );
-
-    if (!inviter) {
-      alert('Invalid referral code!');
-      return;
-    }
-
-    users[inviter].invited.push(username);
-    users[username] = {
-      referralCode: generateReferralCode(username),
-      invited: []
-    };
-    saveUsers();
-    displayUser(username);
-    usernameInput.value = '';
-    referralInput.value = '';
-  });
+// Load data from local storage on page load
+document.addEventListener("DOMContentLoaded", () => {
+  if (userData.referralCode) {
+    updateReferralInfo();
+  }
 });
