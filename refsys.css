@@ -24,7 +24,7 @@ body {
   margin-bottom: 20px;
 }
 
-.referral-box, .invite-box {
+.registration-form {
   margin-bottom: 20px;
 }
 
@@ -55,27 +55,23 @@ body {
   box-shadow: 4px 4px 8px #b3b8bf, -4px -4px 8px #ffffff;
 }
 
-.referral-info {
-  margin-bottom: 20px;
-  font-size: 16px;
-  text-align: left;
-}
-
-.referral-code {
-  font-weight: bold;
-  color: #555;
-}
-
-.invited-list {
+.users-list {
   list-style: none;
   padding: 0;
 }
 
-.invited-list li {
+.users-list li {
   background: #e0e5ec;
   padding: 10px;
   margin: 5px 0;
   border-radius: 10px;
   box-shadow: 6px 6px 12px #b3b8bf, -6px -6px 12px #ffffff;
   font-size: 16px;
+  text-align: left;
+}
+
+.users-list .referral-count {
+  font-size: 14px;
+  color: #666;
+  margin-top: 5px;
 }
