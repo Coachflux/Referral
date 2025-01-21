@@ -1,78 +1,73 @@
+// script.js
 
-// Initialize local storage data
-const users = JSON.parse(localStorage.getItem("users")) || [];
+// Initialize local storage
+const usersKey = "registeredUsers";
+const users = JSON.parse(localStorage.getItem(usersKey)) || [];
 
-// Load existing users on page load
-document.addEventListener("DOMContentLoaded", () => {
-  renderUsers();
-});
+// Update users list UI
+const updateUsersListUI = () => {
+  const usersList = document.getElementById("usersList");
+  usersList.innerHTML = "";
+  users.forEach(user => {
+    const listItem = document.createElement("li");
+    listItem.innerHTML = `
+      <strong>${user.name}</strong> (Referral Count: ${user.referralCount})
+      <ul>
+        ${user.invitedUsers.map(invitee => `<li>${invitee}</li>`).join("")}
+      </ul>
+    `;
+    usersList.appendChild(listItem);
+  });
+};
 
 // Handle form submission
-document.getElementById("registrationForm").addEventListener("submit", (event) => {
+document.getElementById("registrationForm").addEventListener("submit", event => {
   event.preventDefault();
 
   const userName = document.getElementById("userName").value.trim();
   const referralCode = document.getElementById("referralCode").value.trim();
 
-  if (userName === "") {
+  if (!userName) {
     alert("Name is required!");
     return;
   }
 
-  // Check if the user already exists
-  if (users.find((user) => user.name.toLowerCase() === userName.toLowerCase())) {
-    alert("User already registered!");
-    return;
-  }
+  let referredByUser = null;
 
-  // Create new user object
-  const newUser = {
-    name: userName,
-    referralCode: generateReferralCode(userName),
-    referredBy: referralCode || null,
-    referrals: [],
-  };
-
-  // Add the user to the referred user's list (if referral code is valid)
+  // Check if referral code is valid
   if (referralCode) {
-    const referredUser = users.find((user) => user.referralCode === referralCode);
-    if (referredUser) {
-      referredUser.referrals.push(userName);
-    } else {
+    referredByUser = users.find(user => user.name.toLowerCase() === referralCode.toLowerCase());
+    if (!referredByUser) {
       alert("Invalid referral code!");
       return;
     }
   }
 
-  // Add new user to the list and save to local storage
-  users.push(newUser);
-  localStorage.setItem("users", JSON.stringify(users));
+  // Create new user
+  const newUser = {
+    name: userName,
+    referralCount: 0,
+    invitedUsers: []
+  };
 
-  // Reset form and re-render users
-  document.getElementById("userName").value = "";
-  document.getElementById("referralCode").value = "";
-  renderUsers();
+  // Update the referring user's data
+  if (referredByUser) {
+    referredByUser.referralCount += 1;
+    referredByUser.invitedUsers.push(userName);
+  }
+
+  // Add new user to the list
+  users.push(newUser);
+
+  // Save to local storage
+  localStorage.setItem(usersKey, JSON.stringify(users));
+
+  // Update UI
+  updateUsersListUI();
+
+  // Clear form
+  document.getElementById("registrationForm").reset();
 });
 
-// Render users and their referral data
-function renderUsers() {
-  const usersList = document.getElementById("usersList");
-  usersList.innerHTML = "";
-
-  users.forEach((user) => {
-    const listItem = document.createElement("li");
-    listItem.innerHTML = `
-      <strong>${user.name}</strong> (Code: ${user.referralCode})
-      <div class="referral-count">
-        Referrals: ${user.referrals.length}
-        ${user.referrals.length > 0 ? ` - Invited: ${user.referrals.join(", ")}` : ""}
-      </div>
-    `;
-    usersList.appendChild(listItem);
-  });
-}
-
-// Generate a unique referral code based on the user's name
-function generateReferralCode(name) {
-  return `${name.toUpperCase()}-${Math.floor(1000 + Math.random() * 9000)}`;
-}
+// Initialize UI with stored users
+updateUsersListUI();
