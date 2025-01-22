@@ -47,13 +47,11 @@ document.getElementById("registrationForm").addEventListener("submit", event => 
   const newUser = {
     name: userName,
     referralCount: 0,
-    invitedUsers: []
   };
 
   // Update the referring user's data
   if (referredByUser) {
     referredByUser.referralCount += 1;
-    referredByUser.invitedUsers.push(userName);
   }
 
   // Add new user to the list
